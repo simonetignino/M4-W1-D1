@@ -152,7 +152,6 @@ function anagramma(stringa1, stringa2) {
                 //confronto ogni carattere della prima stringa, con tutta la seconda stringa. Se trovo corrispondenza, elimino il carattere
                 if(stringa1[char1] === stringa2[char2]) {
                     stringa2 = stringa2.replace(stringa2[char2], ``);
-                    console.log(stringa2);
                 }
             }
         }
@@ -199,6 +198,41 @@ function newArray (array, parola) {
 }
 
 console.log(newArray([`carenti`, `incerta`, `espatrio`], `cartine`));
+
+/* 4. Partendo da una stringa passata come parametro, ritorna `true` se la stringa è palindroma o `false` se non lo è. */ 
+function palindroma(stringa) {
+    stringa = stringa.toLowerCase();
+    let stringaAlContrario = ``;
+    for(let i = stringa.length - 1; i >= 0; i--) {
+        stringaAlContrario += stringa[i]
+    }
+    if(stringaAlContrario == stringa) {
+        return true;
+    } else {
+        return false; 
+    }
+}
+
+console.log(palindroma(`Qaanaaq`));
+
+/* 5. Partendo da un numero intero (dai parametri) ritorna un numero che contenga le stesse cifre, ma in ordine contrario. Es. 189 ⇒ 981 */
+
+function contrario (numero) {
+    //Faccio un controllo per vedere se il numero è stato inserito in maniera corretta. Poi lo converto in stringa e lo inverto
+    let numeroAlContrario = ``
+    if(numero >= 0 || numero < 0) {
+        numero = String(numero)
+        for (let i = numero.length-1; i >= 0; i--) {
+            numeroAlContrario+=numero[i];       
+        }
+        numeroAlContrario = parseInt(numeroAlContrario);
+        console.log(numeroAlContrario);
+    } else {
+        console.log(`inserisci un numero`);
+    }
+    
+}
+contrario(198796);
 
 /* 10. Scrivi una funzione che accetti un intero N e ritorni una matrice a spirale NxN:
 ES.
