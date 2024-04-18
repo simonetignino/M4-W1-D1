@@ -198,7 +198,7 @@ function newArray (array, parola) {
 
 }
 
-console.log(newArray([`cartine`, `incerta`, `espatrio`], `cartine`));
+console.log(newArray([`carenti`, `incerta`, `espatrio`], `cartine`));
 
 /* 10. Scrivi una funzione che accetti un intero N e ritorni una matrice a spirale NxN:
 ES.
