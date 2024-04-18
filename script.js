@@ -169,6 +169,37 @@ function anagramma(stringa1, stringa2) {
 
 console.log(anagramma(`antonio`, `atonoin`)); 
 
+/* 3. Partendo da una lista di possibili anagrammi e da una parola (entrambi passati come parametri), ritorna un nuovo array contenente tutti gli anagrammi corretti della parola data. */
+
+function newArray (array, parola) {
+    let newArray = [];
+
+    //ciclo l'array per pulire il contenuto all'interno da eventuali punti e caratteri speciali 
+    for(let elemento in array) {
+        array[elemento] = array[elemento].replace(/[^\w]/g, '')
+    }
+    // scorro l'array, poi utilizzando il ragionamento dell'esercizio precendete, controllo se l'array contiene stringhe angaramme della parola
+    for(let elemento in array) {
+        let stringa = array[elemento];
+        if(stringa.length === parola.length) {
+            for(let char1 in parola) {
+                for(let char2 in stringa) {
+                    if (parola[char1] === stringa[char2]) {
+                        stringa = stringa.replace(stringa[char2], ``)
+                    }
+                }
+                if(stringa === ``) {
+                    newArray.push(array[elemento]);
+                }
+            }
+        }
+    }
+    return newArray;
+
+}
+
+console.log(newArray([`ciao`, `oiac`, `antonio`, `filippo`, `napoli`, `ioac`, `ccooai`], `aotnoin`));
+
 /* 10. Scrivi una funzione che accetti un intero N e ritorni una matrice a spirale NxN:
 ES.
 N=2
