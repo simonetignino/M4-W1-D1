@@ -144,14 +144,30 @@ function anagramma(stringa1, stringa2) {
     stringa1 = stringa1.replace(/[^\w]/g, '');
     stringa2 = stringa2.replace(/[^\w]/g, '');
 
-    //dopo aver pulito, posso scorrere stringa con stringa e rimuover il char, alla fine dovrei avere una "stringa" vuota, sennò dovrei trovarmi qualche carattere
-    let indice = 0;
-    for(let char in stringa1){
-        if(stringa1[char] === stringa2[indice]) {
-            stringa2[indice] === ``;
+    //controllo innanzitutto che le stringhe abbiano stesse dimensioni, nel caso non fosse così è impossibile che siano angarammi
+    if(stringa1.length === stringa2.length) {
+        // utilizzo due for per scorrere le due stringhe 
+        for(let char1 in stringa1) {
+            for(let char2 in stringa2) {
+                //confronto ogni carattere della prima stringa, con tutta la seconda stringa. Se trovo corrispondenza, elimino il carattere
+                if(stringa1[char1] === stringa2[char2]) {
+                    stringa2 = stringa2.replace(stringa2[char2], ``);
+                    console.log(stringa2);
+                }
+            }
         }
+        if (stringa2 === ``) {
+            return true;
+        } else {
+            return false; 
+        }
+    } else {
+        return false; 
     }
+
 }
+
+console.log(anagramma(`antonio`, `atonoin`)); 
 
 /* 10. Scrivi una funzione che accetti un intero N e ritorni una matrice a spirale NxN:
 ES.
